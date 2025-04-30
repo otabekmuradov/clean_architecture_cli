@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+// FontWeight.w100: Тонкий (Thin)
+// FontWeight.w200: Экстра-легкий (Extra Light)
+// FontWeight.w300: Легкий (Light)
+// FontWeight.w400: Нормальный (Regular)
+// FontWeight.w500: Средний (Medium)
+// FontWeight.w600: Полужирный (Semi-Bold)
+// FontWeight.w700: Жирный (Bold)
+// FontWeight.w800: Экстра-жирный (Extra Bold)
+// FontWeight.w900: Ультра-жирный (Ultra Bold)
+
+class AppFonts {
+	//TODO: add fonts here
+}

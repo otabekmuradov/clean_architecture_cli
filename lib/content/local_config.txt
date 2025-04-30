@@ -1,0 +1,44 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:feed_up/core/constants/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+///[LocalConfig] class thant manage token configuration.
+///Its needs on module Dio InterceptorsWrapper.
+class LocalConfig {
+  SharedPreferences preferences;
+  LocalConfig(this.preferences) {
+    //logger.i('Local shared preferences Initted:${preferences.runtimeType}');
+  }
+
+  ///[getToken] function to get token from local storage
+  String getToken() {
+    final String _token = preferences.getString("YOUR KEY HERE") ?? "";
+    return _token;
+  }
+
+  ///[getFCMToken] function to get FCM token from local Storage
+  String getFCMToken() {
+    final String _token = preferences.getString("YOUR KEY HERE") ?? "";
+    return _token;
+  }
+
+  ///[setToken] function to set token from response of request
+  Future<void> setToken(String token) async => await preferences.setString("YOUR KEY HERE", token);
+
+  ///[setFCMToken] function to set FCM token from response of request
+  Future<void> setFCMToken(String token) async =>
+      await preferences.setString("YOUR KEY HERE", token);
+
+  ///[clear] function to clear clear certain data from shared preferences
+  Future<void> clear() async {
+    await preferences.remove("YOUR KEY HERE");
+    await preferences.remove("YOUR KEY HERE");
+  }
+
+  ///[getRefreshToken] get refresh token from local storage
+  String getRefreshToken() => preferences.getString("YOUR KEY HERE") ?? '';
+
+  ///[setRefreshToken] set refresh token from local storage
+  Future<void> setRefreshToken(String refreshToken) async =>
+      await preferences.setString("YOUR KEY HERE", refreshToken);
+}
