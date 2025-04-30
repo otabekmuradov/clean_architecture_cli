@@ -1,216 +1,251 @@
-# TDD Structure Generator
+# Clean Structure Generator
 
-A command-line tool for generating TDD (Test-Driven Development) project structures in Flutter applications.
+A CLI tool for generating clean architecture Flutter project structures.
 
 ## Features
 
-- Generate core project structure
-- Generate feature-specific structure following clean architecture
-- Support for data, domain, and presentation layers
-- Automatic creation of necessary files and directories
-- Proper naming conventions and file organization
+- Generates a clean architecture project structure
+- Creates feature modules with proper separation of concerns
+- Follows clean architecture principles
+- Easy to use command-line interface
 
 ## Installation
 
 ```bash
-dart pub global activate --source git https://github.com/otabekmuradov/tdd_architecture_gen
+# Activate
+dart pub global activate clean_structure
+
+# Deactivate
+dart pub global deactivate clean_structure
 ```
 
 ## Usage
 
-### Generate Core Structure
+### Create a new project structure
 
 ```bash
-tdd_structure --name your_project_name
+clean_structure create
 ```
 
-This will create the following core structure:
-- core/
-  - services/
-  - widgets/
-  - enums/
-  - constants/
-  - bloc/
-  - config/
-  - di/
-  - errors/
-  - extensions/
-  - observers/
-  - routes/
-  - themes/
-  - usecases/
-  - utils/
+This will generate a clean architecture project structure in your current Flutter project.
 
-### Generate Feature Structure
+### Generate a new feature
 
 ```bash
-tdd_structure --feature feature_name
+clean_structure feature --name user_auth
+# or
+clean_structure feature -n user_auth
 ```
 
-This will create a feature structure with:
-- data/
-  - data_sources/
-    - local_datasource/
-    - remote_datasource/
-  - models/
-  - repositories/
-- domain/
-  - entities/
-  - repositories/
-  - usecases/
-- presentation/
-  - bloc/
-  - screens/
-  - widgets/
+This will generate a new feature module with proper clean architecture structure.
 
-## Available Commands
+### Show help
 
-- `--name` or `-n`: Specify project name for core structure
-- `--feature` or `-f`: Specify feature name for feature structure
-- `--help` or `-h`: Show usage information
+```bash
+clean_structure help
+# or
+clean_structure --help
+# or
+clean_structure -h
+```
+
+## Project Structure
+
+The generated project follows clean architecture principles with the following structure:
+
+```
+lib/
+  ├── core/
+  │   ├── constants/
+  │   ├── errors/
+  │   ├── network/
+  │   ├── usecases/
+  │   └── utils/
+  ├── features/
+  │   └── [feature_name]/
+  │       ├── data/
+  │       │   ├── datasources/
+  │       │   ├── models/
+  │       │   └── repositories/
+  │       ├── domain/
+  │       │   ├── entities/
+  │       │   ├── repositories/
+  │       │   └── usecases/
+  │       └── presentation/
+  │           ├── bloc/
+  │           ├── pages/
+  │           └── widgets/
+  └── injection_container.dart
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
 
-# Генератор TDD Структуры
+# Генератор Чистой Архитектуры
 
-Командный инструмент для генерации структур проектов TDD (Test-Driven Development) в приложениях Flutter.
+Командный инструмент для генерации структур проектов с чистой архитектурой в приложениях Flutter.
 
 ## Возможности
 
-- Генерация основной структуры проекта
-- Генерация структуры для конкретных функций в соответствии с чистой архитектурой
-- Поддержка слоев данных, домена и представления
-- Автоматическое создание необходимых файлов и директорий
-- Правильные соглашения об именовании и организация файлов
+- Генерация структуры проекта с чистой архитектурой
+- Создание модулей функций с правильным разделением ответственности
+- Следование принципам чистой архитектуры
+- Простой в использовании интерфейс командной строки
 
 ## Установка
 
 ```bash
-dart pub global activate --source git https://github.com/otabekmuradov/tdd_architecture_gen
+# Активация
+dart pub global activate clean_structure
+
+# Деактивация
+dart pub global deactivate clean_structure
 ```
 
 ## Использование
 
-### Генерация Основной Структуры
+### Создание структуры проекта
 
 ```bash
-tdd_structure --name имя_вашего_проекта
+clean_structure create
 ```
 
-Создает следующую основную структуру:
-- core/
-  - services/
-  - widgets/
-  - enums/
-  - constants/
-  - bloc/
-  - config/
-  - di/
-  - errors/
-  - extensions/
-  - observers/
-  - routes/
-  - themes/
-  - usecases/
-  - utils/
+Это создаст структуру проекта с чистой архитектурой в вашем текущем проекте Flutter.
 
-### Генерация Структуры Функции
+### Создание новой функции
 
 ```bash
-tdd_structure --feature имя_функции
+clean_structure feature --name user_auth
+# или
+clean_structure feature -n user_auth
 ```
 
-Создает структуру функции со следующими компонентами:
-- data/
-  - data_sources/
-    - local_datasource/
-    - remote_datasource/
-  - models/
-  - repositories/
-- domain/
-  - entities/
-  - repositories/
-  - usecases/
-- presentation/
-  - bloc/
-  - screens/
-  - widgets/
+Это создаст новый модуль функции с правильной структурой чистой архитектуры.
 
-## Доступные Команды
+### Показать справку
 
-- `--name` или `-n`: Указать имя проекта для основной структуры
-- `--feature` или `-f`: Указать имя функции для структуры функции
-- `--help` или `-h`: Показать информацию об использовании
+```bash
+clean_structure help
+# или
+clean_structure --help
+# или
+clean_structure -h
+```
+
+## Структура проекта
+
+Сгенерированный проект следует принципам чистой архитектуры со следующей структурой:
+
+```
+lib/
+  ├── core/
+  │   ├── constants/
+  │   ├── errors/
+  │   ├── network/
+  │   ├── usecases/
+  │   └── utils/
+  ├── features/
+  │   └── [feature_name]/
+  │       ├── data/
+  │       │   ├── datasources/
+  │       │   ├── models/
+  │       │   └── repositories/
+  │       ├── domain/
+  │       │   ├── entities/
+  │       │   ├── repositories/
+  │       │   └── usecases/
+  │       └── presentation/
+  │           ├── bloc/
+  │           ├── pages/
+  │           └── widgets/
+  └── injection_container.dart
+```
 
 ---
 
-# TDD Struktura Generatori
+# Toza Arxitektura Generatori
 
-Flutter ilovalarida TDD (Test-Driven Development) loyiha strukturalarini yaratish uchun komanda satri vositasi.
+Flutter ilovalari uchun toza arxitekturaga asoslangan loyiha strukturalarini yaratish uchun komanda satri vositasi.
 
 ## Imkoniyatlar
 
-- Asosiy loyiha strukturasini yaratish
-- Toza arxitekturaga mos ravishda funksiyalar uchun struktura yaratish
-- Ma'lumotlar, domen va taqdimot qatlamlarini qo'llab-quvvatlash
-- Kerakli fayllar va kataloglarni avtomatik yaratish
-- To'g'ri nomlash qoidalari va fayl tashkili
+- Toza arxitekturaga asoslangan loyiha strukturasini yaratish
+- Funksiyalar modullarini to'g'ri bo'linish bilan yaratish
+- Toza arxitektura tamoyillariga amal qilish
+- Oson ishlatiladigan komanda satri interfeysi
 
 ## O'rnatish
 
 ```bash
-dart pub global activate --source git https://github.com/otabekmuradov/tdd_architecture_gen
+# Faollashtirish
+dart pub global activate clean_structure
+
+# O'chirish
+dart pub global deactivate clean_structure
 ```
 
 ## Foydalanish
 
-### Asosiy Struktura Yaratish
+### Loyiha strukturasini yaratish
 
 ```bash
-tdd_structure --name loyiha_nomi
+clean_structure create
 ```
 
-Quyidagi asosiy struktura yaratiladi:
-- core/
-  - services/
-  - widgets/
-  - enums/
-  - constants/
-  - bloc/
-  - config/
-  - di/
-  - errors/
-  - extensions/
-  - observers/
-  - routes/
-  - themes/
-  - usecases/
-  - utils/
+Bu sizning joriy Flutter loyihangizda toza arxitekturaga asoslangan struktura yaratadi.
 
-### Funksiya Strukturasi Yaratish
+### Yangi funksiya yaratish
 
 ```bash
-tdd_structure --feature funksiya_nomi
+clean_structure feature --name user_auth
+# yoki
+clean_structure feature -n user_auth
 ```
 
-Funksiya strukturasini quyidagi komponentlar bilan yaratadi:
-- data/
-  - data_sources/
-    - local_datasource/
-    - remote_datasource/
-  - models/
-  - repositories/
-- domain/
-  - entities/
-  - repositories/
-  - usecases/
-- presentation/
-  - bloc/
-  - screens/
-  - widgets/
+Bu toza arxitekturaga mos yangi funksiya modulini yaratadi.
 
-## Mavjud Buyruqlar
+### Yordam ko'rsatish
 
-- `--name` yoki `-n`: Asosiy struktura uchun loyiha nomini belgilash
-- `--feature` yoki `-f`: Funksiya strukturasini uchun funksiya nomini belgilash
-- `--help` yoki `-h`: Foydalanish haqida ma'lumot ko'rsatish
+```bash
+clean_structure help
+# yoki
+clean_structure --help
+# yoki
+clean_structure -h
+```
+
+## Loyiha Strukturasi
+
+Yaratilgan loyiha toza arxitektura tamoyillariga asoslangan quyidagi strukturaga ega:
+
+```
+lib/
+  ├── core/
+  │   ├── constants/
+  │   ├── errors/
+  │   ├── network/
+  │   ├── usecases/
+  │   └── utils/
+  ├── features/
+  │   └── [feature_name]/
+  │       ├── data/
+  │       │   ├── datasources/
+  │       │   ├── models/
+  │       │   └── repositories/
+  │       ├── domain/
+  │       │   ├── entities/
+  │       │   ├── repositories/
+  │       │   └── usecases/
+  │       └── presentation/
+  │           ├── bloc/
+  │           ├── pages/
+  │           └── widgets/
+  └── injection_container.dart
+```

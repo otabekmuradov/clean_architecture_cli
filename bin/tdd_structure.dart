@@ -52,6 +52,13 @@ Clean Structure Generator
 
 A CLI tool for generating clean architecture Flutter project structures.
 
+INSTALLATION:
+  Activate:
+    dart pub global activate clean_structure
+
+  Deactivate:
+    dart pub global deactivate clean_structure
+
 USAGE:
   clean_structure <COMMAND> [ARGS]
 
