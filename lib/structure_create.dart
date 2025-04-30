@@ -201,7 +201,11 @@ class ${featureName.pascalCase}LocalDataSource {
 import 'package:tdd_structure/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 
-class ${featureName.pascalCase}RemoteDataSource {
+abstract class I${featureName.pascalCase}RemoteDataSource {
+  // Add your remote data source interface here
+}
+
+class ${featureName.pascalCase}RemoteDataSourceImpl implements I${featureName.pascalCase}RemoteDataSource {
   // Add your remote data source implementation here
 }
 ''',
