@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:feed_up/main.dart';
 
 class MyBlocObserver extends BlocObserver {
   @override

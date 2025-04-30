@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:feed_up/core/errors/failure.dart';
 
 ///[Usecase] generic usecase with [<T,P>] generics params
 ///T -> for Type of incoming instances

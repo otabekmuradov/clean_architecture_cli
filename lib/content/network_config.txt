@@ -3,9 +3,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 
-import 'package:feed_up/core/config/token_config.dart';
-import 'package:feed_up/core/constants/constants.dart';
-import 'package:feed_up/core/di/service_locator.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
