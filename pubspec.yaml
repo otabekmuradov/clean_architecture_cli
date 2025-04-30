@@ -1,10 +1,10 @@
-name: tdd_structure
+name: clean_structure
 description: command line-tool to create TDD project structure.
 
 publish_to: "none"
 
 executables:
-  tdd_structure: tdd_structure
+  clean_structure: clean_structure
 
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo

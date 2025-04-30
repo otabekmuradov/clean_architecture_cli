@@ -7,7 +7,7 @@ import 'package:path/path.dart' as p;
 import 'folder_create.dart';
 
 void addCustomStructure(String projectName) async {
-  final packageUri = await Isolate.resolvePackageUri(Uri.parse('package:tdd_structure/'));
+  final packageUri = await Isolate.resolvePackageUri(Uri.parse('package:clean_structure/'));
   if (packageUri == null) {
     print('Error: Unable to resolve package URI.');
     exit(1);
@@ -186,7 +186,7 @@ void addFeatureStructure(String featureName) {
   createFile(
     'lib/features/$featureName/data/data_sources/local_datasource/${featureName}_local_datasource.dart',
     content: '''
-import 'package:tdd_structure/core/errors/failure.dart';
+import 'package:clean_structure/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 
 class ${featureName.pascalCase}LocalDataSource {
@@ -198,14 +198,14 @@ class ${featureName.pascalCase}LocalDataSource {
   createFile(
     'lib/features/$featureName/data/data_sources/remote_datasource/${featureName}_remote_datasource.dart',
     content: '''
-import 'package:tdd_structure/core/errors/failure.dart';
+import 'package:clean_structure/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class I${featureName.pascalCase}RemoteDataSource {
+abstract class ${featureName.pascalCase}RemoteDataSource {
   // Add your remote data source interface here
 }
 
-class ${featureName.pascalCase}RemoteDataSourceImpl implements I${featureName.pascalCase}RemoteDataSource {
+class ${featureName.pascalCase}RemoteDataSourceImpl implements ${featureName.pascalCase}RemoteDataSource {
   // Add your remote data source implementation here
 }
 ''',
@@ -219,11 +219,11 @@ class ${featureName.pascalCase}RemoteDataSourceImpl implements I${featureName.pa
   createFile(
     'lib/features/$featureName/data/repositories/${featureName}_repository_impl.dart',
     content: '''
-import 'package:tdd_structure/core/errors/failure.dart';
-import 'package:tdd_structure/features/$featureName/domain/repositories/i_${featureName}_repository.dart';
+import 'package:clean_structure/core/errors/failure.dart';
+import 'package:clean_structure/features/$featureName/domain/repositories/${featureName}_repository.dart';
 import 'package:dartz/dartz.dart';
 
-class ${featureName.pascalCase}RepositoryImpl implements I${featureName.pascalCase}Repository {
+class ${featureName.pascalCase}RepositoryImpl implements ${featureName.pascalCase}Repository {
   // Add your repository implementation here
 }
 ''',
@@ -238,12 +238,12 @@ class ${featureName.pascalCase}RepositoryImpl implements I${featureName.pascalCa
   // Create repositories
   createDirectoryAndFile('lib/features/$featureName/domain/repositories');
   createFile(
-    'lib/features/$featureName/domain/repositories/i_${featureName}_repository.dart',
+    'lib/features/$featureName/domain/repositories/${featureName}_repository.dart',
     content: '''
-import 'package:tdd_structure/core/errors/failure.dart';
+import 'package:clean_structure/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class I${featureName.pascalCase}Repository {
+abstract class ${featureName.pascalCase}Repository {
   // Add your repository interface here
 }
 ''',

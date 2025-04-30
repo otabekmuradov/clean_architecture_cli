@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:tdd_structure/structure_create.dart';
+import 'package:clean_structure/structure_create.dart';
 
 void main(List<String> arguments) {
   final parser = ArgParser();
@@ -48,12 +48,12 @@ void main(List<String> arguments) {
 
 void _showHelp(ArgParser parser) {
   print('''
-TDD Structure Generator
+Clean Structure Generator
 
-A CLI tool for generating TDD-compliant Flutter project structures.
+A CLI tool for generating clean architecture Flutter project structures.
 
 USAGE:
-  tdd_structure <COMMAND> [ARGS]
+  clean_structure <COMMAND> [ARGS]
 
 COMMANDS:
   create                    Create a new project structure
@@ -62,15 +62,15 @@ COMMANDS:
 
 EXAMPLES:
   Create a new project:
-    tdd_structure create
+    clean_structure create
 
   Generate a feature:
-    tdd_structure feature --name user_auth
-    tdd_structure feature -n user_auth
+    clean_structure feature --name user_auth
+    clean_structure feature -n user_auth
 
   Show help:
-    tdd_structure help
-    tdd_structure --help
-    tdd_structure -h
+    clean_structure help
+    clean_structure --help
+    clean_structure -h
 ''');
 }
