@@ -2,8 +2,9 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:isolate';
 
-import 'folder_create.dart';
 import 'package:path/path.dart' as p;
+
+import 'folder_create.dart';
 
 void addCustomStructure(String projectName) async {
   final packageUri = await Isolate.resolvePackageUri(Uri.parse('package:tdd_structure/'));
@@ -24,7 +25,7 @@ void addCustomStructure(String projectName) async {
   final pubCacheGitDir = p.join(Platform.environment['HOME']!, '.pub-cache', 'git');
 
   final packageDir = Directory(pubCacheGitDir).listSync().firstWhere(
-        (entity) => entity is Directory && entity.path.contains('tdd-file-structure-generator'),
+        (entity) => entity is Directory && entity.path.contains('tdd_structure'),
         orElse: () => throw Exception('Error: Git package not found in cache.'),
       ) as Directory;
 
@@ -166,4 +167,31 @@ void addCustomStructure(String projectName) async {
     'lib/core/themes/app_theme.dart',
     content: await readContentFromFile('$packagePath/lib/content/app_theme.txt'),
   );
+}
+
+void addFeatureStructure(String featureName) {
+  print('Adding feature structure: $featureName');
+
+  // Create main feature directory
+  createDirectoryAndFile('lib/features/$featureName');
+
+  // Create data layer
+  createDirectoryAndFile('lib/features/$featureName/data');
+  createDirectoryAndFile('lib/features/$featureName/data/data_sources');
+  createDirectoryAndFile('lib/features/$featureName/data/models');
+  createDirectoryAndFile('lib/features/$featureName/data/repositories');
+
+  // Create domain layer
+  createDirectoryAndFile('lib/features/$featureName/domain');
+  createDirectoryAndFile('lib/features/$featureName/domain/entities');
+  createDirectoryAndFile('lib/features/$featureName/domain/repositories');
+  createDirectoryAndFile('lib/features/$featureName/domain/usecases');
+
+  // Create presentation layer
+  createDirectoryAndFile('lib/features/$featureName/presentation');
+  createDirectoryAndFile('lib/features/$featureName/presentation/bloc');
+  createDirectoryAndFile('lib/features/$featureName/presentation/screens');
+  createDirectoryAndFile('lib/features/$featureName/presentation/widgets');
+
+  print('Feature structure created successfully!');
 }
