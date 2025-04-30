@@ -22,17 +22,16 @@ void addCustomStructure(String projectName) async {
     exit(1);
   }
 
-  final pubCacheGitDir = p.join(Platform.environment['HOME']!, '.pub-cache', 'git');
+  // Get the package path from the resolved URI
+  final packagePath = p.dirname(packageUri.toFilePath());
 
-  final packageDir = Directory(pubCacheGitDir).listSync().firstWhere(
-        (entity) => entity is Directory && entity.path.contains('tdd_structure'),
-        orElse: () => throw Exception('Error: Git package not found in cache.'),
-      ) as Directory;
+  if (!Directory(packagePath).existsSync()) {
+    print('Error: Package directory not found at $packagePath');
+    print('Please make sure the package is properly installed.');
+    exit(1);
+  }
 
-  // Теперь у нас есть директория пакета
-  final packagePath = packageDir.path;
-
-  log(packagePath);
+  log('Package path: $packagePath');
 
 /* =========================== CREATE CORE AND FEATURE ========================================*/
   createDirectoryAndFile('lib/core');
