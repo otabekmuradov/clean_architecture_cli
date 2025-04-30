@@ -1,5 +1,5 @@
 name: clean_structure
-description: command line-tool to create TDD project structure.
+description: command line-tool to create Clean Architecture project.
 
 publish_to: "none"
 
