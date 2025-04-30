@@ -13,11 +13,13 @@ void main(List<String> arguments) async {
   final createCommand = ArgParser();
   final featureCommand = ArgParser()..addOption('name', abbr: 'n', help: 'Feature name', mandatory: true);
   final templateCommand = ArgParser();
+  final packagesCommand = ArgParser();
 
   parser
     ..addCommand('create', createCommand)
     ..addCommand('feature', featureCommand)
     ..addCommand('template', templateCommand)
+    ..addCommand('packages', packagesCommand)
     ..addFlag('help', abbr: 'h', negatable: false, help: 'Show this help message');
 
   try {
@@ -48,6 +50,9 @@ void main(List<String> arguments) async {
       addFeatureStructure(featureName);
     } else if (argResults.command!.name == 'template') {
       await _downloadTemplate();
+    } else if (argResults.command!.name == 'packages') {
+      print('Updating package information...');
+      await FileCleaner.updatePackageInfo();
     }
   } catch (e) {
     print('Error: ${e.toString()}');
@@ -102,6 +107,7 @@ COMMANDS:
   create                    Create a new project structure (also cleans comments from pubspec.yaml and main.dart)
   feature --name <feature>  Generate a new feature
   template                 Download the clean architecture template to project root
+  packages                 Update package information from pub.dev
   help                     Show this help message
 
 EXAMPLES:
@@ -114,6 +120,9 @@ EXAMPLES:
 
   Download template:
     clean_structure template
+
+  Update package info:
+    clean_structure packages
 
   Show help:
     clean_structure help
