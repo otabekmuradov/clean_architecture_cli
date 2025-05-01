@@ -50,7 +50,8 @@ void addCustomStructure(String projectName) async {
   createDirectoryAndFile('lib/core/usecases');
   createDirectoryAndFile('lib/core/utils');
 
-  createDirectoryAndFile('lib/features');
+  // Remove features directory creation from here
+  // createDirectoryAndFile('lib/features');
 
 /* =========================== BLOC FILES CREATE ========================================*/
 
@@ -170,6 +171,9 @@ void addCustomStructure(String projectName) async {
 
 void addFeatureStructure(String featureName) {
   print('Adding feature structure: $featureName');
+
+  // Create features directory if it doesn't exist
+  createDirectoryAndFile('lib/features');
 
   // Create main feature directory
   createDirectoryAndFile('lib/features/$featureName');
