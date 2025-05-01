@@ -52,11 +52,11 @@ void main(List<String> arguments) async {
     } else if (argResults.command!.name == 'template') {
       var type = argResults.command!['type'];
       if (type == 'feature') {
-        addCustomStructure('default_structure');
-        print('\nFeature-driven architecture template created successfully!');
+        await _downloadTemplate('feature');
+        print('\nFeature-driven architecture template downloaded successfully!');
       } else if (type == 'layer') {
-        await _createLayerStructure('app');
-        print('\nLayer-driven architecture template created successfully!');
+        await _downloadTemplate('layer');
+        print('\nLayer-driven architecture template downloaded successfully!');
       } else {
         print('Error: Invalid architecture type. Use either "feature" or "layer".');
         exit(1);
@@ -74,7 +74,7 @@ void main(List<String> arguments) async {
   }
 }
 
-Future<void> _downloadTemplate() async {
+Future<void> _downloadTemplate(String type) async {
   try {
     final packageUri = await Isolate.resolvePackageUri(Uri.parse('package:clean_structure/'));
     if (packageUri == null) {
@@ -83,7 +83,7 @@ Future<void> _downloadTemplate() async {
     }
 
     final packagePath = p.dirname(packageUri.toFilePath());
-    final templatePath = p.join(packagePath, 'lib', 'content', 'template.md');
+    final templatePath = p.join(packagePath, 'lib', 'content', '${type}_template.md');
 
     if (!File(templatePath).existsSync()) {
       print('Error: Template file not found.');
@@ -91,7 +91,7 @@ Future<void> _downloadTemplate() async {
     }
 
     final templateContent = await File(templatePath).readAsString();
-    await File('template.md').writeAsString(templateContent);
+    await File('${type}_architecture_template.md').writeAsString(templateContent);
 
     print('Template file downloaded successfully to project root!');
   } catch (e) {
