@@ -39,6 +39,22 @@ clean_structure feature -n user_auth
 
 This will generate a new feature module with proper clean architecture structure.
 
+### Create a template with specific architecture
+
+```bash
+# For feature-driven architecture
+clean_structure template --type feature
+# or
+clean_structure template -t feature
+
+# For layer-driven architecture
+clean_structure template --type layer
+# or
+clean_structure template -t layer
+```
+
+This will create a template with the specified architecture type in your project root.
+
 ### Show help
 
 ```bash
@@ -129,6 +145,22 @@ clean_structure feature -n user_auth
 
 Это создаст новый модуль функции с правильной структурой чистой архитектуры.
 
+### Создание шаблона с конкретной архитектурой
+
+```bash
+# Для архитектурой на основе функций
+clean_structure template --type feature
+# или
+clean_structure template -t feature
+
+# Для архитектурой на основе слоев
+clean_structure template --type layer
+# или
+clean_structure template -t layer
+```
+
+Это создаст шаблон с указанным типом архитектуры в корне вашего проекта.
+
 ### Показать справку
 
 ```bash
@@ -210,6 +242,20 @@ clean_structure feature -n user_auth
 ```
 
 Bu toza arxitekturaga mos yangi funksiya modulini yaratadi.
+
+### Yangi shablon yaratish
+
+```bash
+clean_structure template --type feature
+# yoki
+clean_structure template -t feature
+
+clean_structure template --type layer
+# yoki
+clean_structure template -t layer
+```
+
+Bu shablonni joriy loyihasida belgilangan turga asoslangan yaratadi.
 
 ### Yordam ko'rsatish
 
