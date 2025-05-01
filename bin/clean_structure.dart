@@ -13,13 +13,13 @@ void main(List<String> arguments) async {
   final createCommand = ArgParser();
   final featureCommand = ArgParser()..addOption('name', abbr: 'n', help: 'Feature name', mandatory: true);
   final templateCommand = ArgParser();
-  final packagesCommand = ArgParser();
+  final layerCommand = ArgParser();
 
   parser
     ..addCommand('create', createCommand)
     ..addCommand('feature', featureCommand)
     ..addCommand('template', templateCommand)
-    ..addCommand('packages', packagesCommand)
+    ..addCommand('layer', layerCommand)
     ..addFlag('help', abbr: 'h', negatable: false, help: 'Show this help message');
 
   try {
@@ -50,9 +50,10 @@ void main(List<String> arguments) async {
       addFeatureStructure(featureName);
     } else if (argResults.command!.name == 'template') {
       await _downloadTemplate();
-    } else if (argResults.command!.name == 'packages') {
-      print('Updating package information...');
-      await FileCleaner.updatePackageInfo();
+    } else if (argResults.command!.name == 'layer') {
+      print('Creating layer-driven architecture...');
+      await _createLayerStructure();
+      print('Layer-driven architecture created successfully!');
     }
   } catch (e) {
     print('Error: ${e.toString()}');
@@ -87,6 +88,75 @@ Future<void> _downloadTemplate() async {
   }
 }
 
+Future<void> _createLayerStructure() async {
+  // Create main layers
+  final layers = ['data', 'domain', 'presentation'];
+  for (final layer in layers) {
+    final layerDir = Directory('lib/$layer');
+    if (!await layerDir.exists()) {
+      await layerDir.create(recursive: true);
+    }
+
+    // Create common structure for each layer
+    switch (layer) {
+      case 'data':
+        await _createDataLayer(layerDir);
+        break;
+      case 'domain':
+        await _createDomainLayer(layerDir);
+        break;
+      case 'presentation':
+        await _createPresentationLayer(layerDir);
+        break;
+    }
+  }
+}
+
+Future<void> _createDataLayer(Directory dir) async {
+  final subdirs = [
+    'datasources',
+    'models',
+    'repositories',
+  ];
+
+  for (final subdir in subdirs) {
+    final subdirPath = Directory('${dir.path}/$subdir');
+    if (!await subdirPath.exists()) {
+      await subdirPath.create(recursive: true);
+    }
+  }
+}
+
+Future<void> _createDomainLayer(Directory dir) async {
+  final subdirs = [
+    'entities',
+    'repositories',
+    'usecases',
+  ];
+
+  for (final subdir in subdirs) {
+    final subdirPath = Directory('${dir.path}/$subdir');
+    if (!await subdirPath.exists()) {
+      await subdirPath.create(recursive: true);
+    }
+  }
+}
+
+Future<void> _createPresentationLayer(Directory dir) async {
+  final subdirs = [
+    'blocs',
+    'pages',
+    'widgets',
+  ];
+
+  for (final subdir in subdirs) {
+    final subdirPath = Directory('${dir.path}/$subdir');
+    if (!await subdirPath.exists()) {
+      await subdirPath.create(recursive: true);
+    }
+  }
+}
+
 void _showHelp(ArgParser parser) {
   print('''
 Clean Structure Generator
@@ -105,24 +175,24 @@ USAGE:
 
 COMMANDS:
   create                    Create a new project structure (also cleans comments from pubspec.yaml and main.dart)
-  feature --name <feature>  Generate a new feature
+  feature --name <feature>  Generate a new feature (feature-driven architecture)
+  layer                    Generate layer-driven architecture structure
   template                 Download the clean architecture template to project root
-  packages                 Update package information from pub.dev
   help                     Show this help message
 
 EXAMPLES:
   Create a new project:
     clean_structure create
 
-  Generate a feature:
+  Generate a feature (feature-driven):
     clean_structure feature --name user_auth
     clean_structure feature -n user_auth
 
+  Generate layer-driven architecture:
+    clean_structure layer
+
   Download template:
     clean_structure template
-
-  Update package info:
-    clean_structure packages
 
   Show help:
     clean_structure help
