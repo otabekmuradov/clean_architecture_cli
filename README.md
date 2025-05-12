@@ -65,35 +65,6 @@ clean_structure --help
 clean_structure -h
 ```
 
-## Project Structure
-
-The generated project follows clean architecture principles with the following structure:
-
-```
-lib/
-  ├── core/
-  │   ├── constants/
-  │   ├── errors/
-  │   ├── network/
-  │   ├── usecases/
-  │   └── utils/
-  ├── features/
-  │   └── [feature_name]/
-  │       ├── data/
-  │       │   ├── datasources/
-  │       │   ├── models/
-  │       │   └── repositories/
-  │       ├── domain/
-  │       │   ├── entities/
-  │       │   ├── repositories/
-  │       │   └── usecases/
-  │       └── presentation/
-  │           ├── bloc/
-  │           ├── pages/
-  │           └── widgets/
-  └── injection_container.dart
-```
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -171,35 +142,6 @@ clean_structure --help
 clean_structure -h
 ```
 
-## Структура проекта
-
-Сгенерированный проект следует принципам чистой архитектуры со следующей структурой:
-
-```
-lib/
-  ├── core/
-  │   ├── constants/
-  │   ├── errors/
-  │   ├── network/
-  │   ├── usecases/
-  │   └── utils/
-  ├── features/
-  │   └── [feature_name]/
-  │       ├── data/
-  │       │   ├── datasources/
-  │       │   ├── models/
-  │       │   └── repositories/
-  │       ├── domain/
-  │       │   ├── entities/
-  │       │   ├── repositories/
-  │       │   └── usecases/
-  │       └── presentation/
-  │           ├── bloc/
-  │           ├── pages/
-  │           └── widgets/
-  └── injection_container.dart
-```
-
 ---
 
 # Toza Arxitektura Generatori
@@ -265,33 +207,4 @@ clean_structure help
 clean_structure --help
 # yoki
 clean_structure -h
-```
-
-## Loyiha Strukturasi
-
-Yaratilgan loyiha toza arxitektura tamoyillariga asoslangan quyidagi strukturaga ega:
-
-```
-lib/
-  ├── core/
-  │   ├── constants/
-  │   ├── errors/
-  │   ├── network/
-  │   ├── usecases/
-  │   └── utils/
-  ├── features/
-  │   └── [feature_name]/
-  │       ├── data/
-  │       │   ├── datasources/
-  │       │   ├── models/
-  │       │   └── repositories/
-  │       ├── domain/
-  │       │   ├── entities/
-  │       │   ├── repositories/
-  │       │   └── usecases/
-  │       └── presentation/
-  │           ├── bloc/
-  │           ├── pages/
-  │           └── widgets/
-  └── injection_container.dart
 ```
