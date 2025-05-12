@@ -37,6 +37,14 @@ clean_structure feature --name user_auth
 clean_structure feature -n user_auth
 ```
 
+### Generate a new layer
+
+```bash
+clean_structure layer --name user_auth
+# or
+clean_structure layer -n user_auth
+```
+
 This will generate a new feature module with proper clean architecture structure.
 
 ### Create a template with specific architecture
