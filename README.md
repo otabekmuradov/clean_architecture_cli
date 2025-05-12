@@ -5,7 +5,7 @@ A CLI tool for generating clean architecture Flutter project structures.
 ## Features
 
 - Generates a clean architecture project structure
-- Creates feature modules with proper separation of concerns
+- Creates feature/layer modules with proper separation of concerns
 - Follows clean architecture principles
 - Easy to use command-line interface
 

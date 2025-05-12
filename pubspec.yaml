@@ -5,7 +5,7 @@ homepage: https://github.com/otabekmuradov
 executables:
   clean_structure: clean_structure
 
-version: 0.1.0
+version: 0.1.1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
