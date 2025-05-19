@@ -5,7 +5,7 @@ A CLI tool for generating clean architecture Flutter project structures.
 ## Features
 
 - Generates a clean architecture project structure
-- Creates feature modules with proper separation of concerns
+- Creates feature/layer modules with proper separation of concerns
 - Follows clean architecture principles
 - Easy to use command-line interface
 
@@ -35,6 +35,14 @@ This will generate a clean architecture project structure in your current Flutte
 clean_structure feature --name user_auth
 # or
 clean_structure feature -n user_auth
+```
+
+### Generate a new layer
+
+```bash
+clean_structure layer --name user_auth
+# or
+clean_structure layer -n user_auth
 ```
 
 This will generate a new feature module with proper clean architecture structure.
@@ -69,6 +77,8 @@ clean_structure -h
 
 The generated project follows clean architecture principles with the following structure:
 
+Feature First :
+
 ```
 lib/
   ├── core/
@@ -91,6 +101,34 @@ lib/
   │           ├── bloc/
   │           ├── pages/
   │           └── widgets/
+  └── injection_container.dart
+```
+
+Layer First: 
+
+```
+lib/
+  ├── core/
+  │   ├── constants/
+  │   ├── errors/
+  │   ├── network/
+  │   └── usecases/
+  │   
+  ├── data/
+  │   ├── datasources/
+  │   ├── models/
+  │   └── repositories/
+  │
+  ├── domain/
+  │   ├── entities/
+  │   ├── repositories/
+  │   └── usecases/
+  │
+  ├── presentation/
+  │   ├── bloc/
+  │   ├── pages/
+  │   └── widgets/
+
   └── injection_container.dart
 ```
 
@@ -101,197 +139,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-# Генератор Чистой Архитектуры
-
-Командный инструмент для генерации структур проектов с чистой архитектурой в приложениях Flutter.
-
-## Возможности
-
-- Генерация структуры проекта с чистой архитектурой
-- Создание модулей функций с правильным разделением ответственности
-- Следование принципам чистой архитектуры
-- Простой в использовании интерфейс командной строки
-
-## Установка
-
-```bash
-# Активация
-dart pub global activate clean_structure
-
-# Деактивация
-dart pub global deactivate clean_structure
-```
-
-## Использование
-
-### Создание структуры проекта
-
-```bash
-clean_structure create
-```
-
-Это создаст структуру проекта с чистой архитектурой в вашем текущем проекте Flutter.
-
-### Создание новой функции
-
-```bash
-clean_structure feature --name user_auth
-# или
-clean_structure feature -n user_auth
-```
-
-Это создаст новый модуль функции с правильной структурой чистой архитектуры.
-
-### Создание шаблона с конкретной архитектурой
-
-```bash
-# Для архитектурой на основе функций
-clean_structure template --type feature
-# или
-clean_structure template -t feature
-
-# Для архитектурой на основе слоев
-clean_structure template --type layer
-# или
-clean_structure template -t layer
-```
-
-Это создаст шаблон с указанным типом архитектуры в корне вашего проекта.
-
-### Показать справку
-
-```bash
-clean_structure help
-# или
-clean_structure --help
-# или
-clean_structure -h
-```
-
-## Структура проекта
-
-Сгенерированный проект следует принципам чистой архитектуры со следующей структурой:
-
-```
-lib/
-  ├── core/
-  │   ├── constants/
-  │   ├── errors/
-  │   ├── network/
-  │   ├── usecases/
-  │   └── utils/
-  ├── features/
-  │   └── [feature_name]/
-  │       ├── data/
-  │       │   ├── datasources/
-  │       │   ├── models/
-  │       │   └── repositories/
-  │       ├── domain/
-  │       │   ├── entities/
-  │       │   ├── repositories/
-  │       │   └── usecases/
-  │       └── presentation/
-  │           ├── bloc/
-  │           ├── pages/
-  │           └── widgets/
-  └── injection_container.dart
-```
-
----
-
-# Toza Arxitektura Generatori
-
-Flutter ilovalari uchun toza arxitekturaga asoslangan loyiha strukturalarini yaratish uchun komanda satri vositasi.
-
-## Imkoniyatlar
-
-- Toza arxitekturaga asoslangan loyiha strukturasini yaratish
-- Funksiyalar modullarini to'g'ri bo'linish bilan yaratish
-- Toza arxitektura tamoyillariga amal qilish
-- Oson ishlatiladigan komanda satri interfeysi
-
-## O'rnatish
-
-```bash
-# Faollashtirish
-dart pub global activate clean_structure
-
-# O'chirish
-dart pub global deactivate clean_structure
-```
-
-## Foydalanish
-
-### Loyiha strukturasini yaratish
-
-```bash
-clean_structure create
-```
-
-Bu sizning joriy Flutter loyihangizda toza arxitekturaga asoslangan struktura yaratadi.
-
-### Yangi funksiya yaratish
-
-```bash
-clean_structure feature --name user_auth
-# yoki
-clean_structure feature -n user_auth
-```
-
-Bu toza arxitekturaga mos yangi funksiya modulini yaratadi.
-
-### Yangi shablon yaratish
-
-```bash
-clean_structure template --type feature
-# yoki
-clean_structure template -t feature
-
-clean_structure template --type layer
-# yoki
-clean_structure template -t layer
-```
-
-Bu shablonni joriy loyihasida belgilangan turga asoslangan yaratadi.
-
-### Yordam ko'rsatish
-
-```bash
-clean_structure help
-# yoki
-clean_structure --help
-# yoki
-clean_structure -h
-```
-
-## Loyiha Strukturasi
-
-Yaratilgan loyiha toza arxitektura tamoyillariga asoslangan quyidagi strukturaga ega:
-
-```
-lib/
-  ├── core/
-  │   ├── constants/
-  │   ├── errors/
-  │   ├── network/
-  │   ├── usecases/
-  │   └── utils/
-  ├── features/
-  │   └── [feature_name]/
-  │       ├── data/
-  │       │   ├── datasources/
-  │       │   ├── models/
-  │       │   └── repositories/
-  │       ├── domain/
-  │       │   ├── entities/
-  │       │   ├── repositories/
-  │       │   └── usecases/
-  │       └── presentation/
-  │           ├── bloc/
-  │           ├── pages/
-  │           └── widgets/
-  └── injection_container.dart
-```

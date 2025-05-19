@@ -36,11 +36,9 @@ void addCustomStructure(String projectName) async {
 /* =========================== CREATE CORE AND FEATURE ========================================*/
   createDirectoryAndFile('lib/core');
   createDirectoryAndFile('lib/core/services');
-  createDirectoryAndFile('lib/core/widgets');
   createDirectoryAndFile('lib/core/enums');
   createDirectoryAndFile('lib/core/constants');
   createDirectoryAndFile('lib/core/bloc');
-  createDirectoryAndFile('lib/core/config');
   createDirectoryAndFile('lib/core/di');
   createDirectoryAndFile('lib/core/errors');
   createDirectoryAndFile('lib/core/extensions');
@@ -48,7 +46,6 @@ void addCustomStructure(String projectName) async {
   createDirectoryAndFile('lib/core/routes');
   createDirectoryAndFile('lib/core/themes');
   createDirectoryAndFile('lib/core/usecases');
-  createDirectoryAndFile('lib/core/utils');
 
   // Remove features directory creation from here
   // createDirectoryAndFile('lib/features');
@@ -72,17 +69,6 @@ void addCustomStructure(String projectName) async {
     content: await readContentFromFile('$packagePath/lib/content/constants.txt'),
   );
 
-  /* =========================== CONFIG FILES CREATE ========================================*/
-
-  createFile(
-    'lib/core/config/local_config.dart',
-    content: await readContentFromFile('$packagePath/lib//content/local_config.txt'),
-  );
-
-  createFile(
-    'lib/core/config/network_config.dart',
-    content: await readContentFromFile('$packagePath/lib/content/network_config.txt'),
-  );
 
   /* =========================== ROUTES FILES CREATE ========================================*/
 
@@ -134,17 +120,6 @@ void addCustomStructure(String projectName) async {
   createFile(
     'lib/core/usecases/usecase.dart',
     content: await readContentFromFile('$packagePath/lib/content/usecase.txt'),
-  );
-
-/* ============================= UTILS FILE CREATE ========================================*/
-
-  createFile(
-    'lib/core/utils/validators.dart',
-    content: await readContentFromFile('$packagePath/lib/content/validator.txt'),
-  );
-  createFile(
-    'lib/core/utils/formatters.dart',
-    content: await readContentFromFile('$packagePath/lib/content/formatters.txt'),
   );
 
 /* ============================= THEMES FILE CREATE ========================================*/
