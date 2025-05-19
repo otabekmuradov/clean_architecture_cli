@@ -73,6 +73,65 @@ clean_structure --help
 clean_structure -h
 ```
 
+## Project Structure
+
+The generated project follows clean architecture principles with the following structure:
+
+Feature First :
+
+```
+lib/
+  ├── core/
+  │   ├── constants/
+  │   ├── errors/
+  │   ├── network/
+  │   ├── usecases/
+  │   └── utils/
+  ├── features/
+  │   └── [feature_name]/
+  │       ├── data/
+  │       │   ├── datasources/
+  │       │   ├── models/
+  │       │   └── repositories/
+  │       ├── domain/
+  │       │   ├── entities/
+  │       │   ├── repositories/
+  │       │   └── usecases/
+  │       └── presentation/
+  │           ├── bloc/
+  │           ├── pages/
+  │           └── widgets/
+  └── injection_container.dart
+```
+
+Layer First: 
+
+```
+lib/
+  ├── core/
+  │   ├── constants/
+  │   ├── errors/
+  │   ├── network/
+  │   └── usecases/
+  │   
+  ├── data/
+  │   ├── datasources/
+  │   ├── models/
+  │   └── repositories/
+  │
+  ├── domain/
+  │   ├── entities/
+  │   ├── repositories/
+  │   └── usecases/
+  │
+  ├── presentation/
+  │   ├── bloc/
+  │   ├── pages/
+  │   └── widgets/
+
+  └── injection_container.dart
+```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
