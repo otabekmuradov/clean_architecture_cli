@@ -85,8 +85,8 @@ lib/
   │   ├── constants/
   │   ├── errors/
   │   ├── network/
-  │   ├── usecases/
-  │   └── utils/
+  │   └── usecases/
+  │    
   ├── features/
   │   └── [feature_name]/
   │       ├── data/
