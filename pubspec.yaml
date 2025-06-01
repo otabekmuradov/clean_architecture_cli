@@ -2,26 +2,20 @@ name: clean_structure
 description: A CLI tool for generating clean architecture Flutter project structures.
 homepage: https://github.com/otabekmuradov
 
-publish_to: "none"
-
 executables:
   clean_structure: clean_structure
 
-version: 0.2.0
+version: 0.2.2
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
-
 funding:
   - https://buymeacoffee.com/otabekmuradov
 
-# Add regular dependencies here.
 dependencies:
   args: ^2.4.2
   path: ^1.8.3
-  http: ^1.1.0
-
 
 dev_dependencies:
   lints: ^3.0.0

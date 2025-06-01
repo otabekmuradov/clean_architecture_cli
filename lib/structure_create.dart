@@ -6,7 +6,7 @@ import 'package:path/path.dart' as p;
 
 import 'folder_create.dart';
 
-void addCustomStructure(String projectName) async {
+void addCustomStructure() async {
   final packageUri = await Isolate.resolvePackageUri(Uri.parse('package:clean_structure/'));
   if (packageUri == null) {
     print('Error: Unable to resolve package URI.');
