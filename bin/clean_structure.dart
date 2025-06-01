@@ -42,7 +42,7 @@ void main(List<String> arguments) async {
     }
 
     if (argResults.command!.name == 'create') {
-      addCustomStructure('default_structure');
+      addCustomStructure();
       print('\nCleaning project files...');
       await FileCleaner.cleanProjectFiles();
       print('Project files cleaned successfully!');
